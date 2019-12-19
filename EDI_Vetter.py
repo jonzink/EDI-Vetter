@@ -1,3 +1,13 @@
+#!/usr/bin/python
+
+### EDI-Vetter -  Created by Jon Zink ###
+### Devolped on python 3.7.1 ###
+
+### If you make use of this code, please cite: ###
+### J. K. Zink et al. 2020
+
+
+
 import copy
 import numpy as np
 import pandas as pd
@@ -1667,15 +1677,4 @@ def previous_pl_check(pipe,plM):
                             
     return None                     
 
-# import pandas as pd
-# import EDI_Vetter
-# lc=pd.read_csv("K2_138.csv", skiprows=1, engine='python')
-# lc.columns = ["ind","ind2",'aper','cad', 'f',"fR_err","fR",'fmask', "flag", 't']
-# lc["ferr"]=lc.fR_err/lc.fR*lc.f
-# params=EDI_Vetter.parameters(per=8.26144,t0=2457740.6451-2454833,radRatio=0.0349,tdur=3.063/24,lc=lc)
-# params=EDI_Vetter.MCfit(params)
-# params=EDI_Vetter.Go(params,delta_mag=10,delta_dist=1000, photoAp=41)
-
-#
-#
     
