@@ -35,7 +35,7 @@ Import the light curve file
 ```
 Now you can set up the EDI-Vetter parameters object with the appropriate transit signal parameters 
 ```
->>> params=EDI_Vetter.parameters(per=8.26144,t0=2907.6451,radRatio=0.0349,tdur=0.128,lc=lc)
+>>> params=EDI_Vetter.parameters(per=8.26144,  t0=2907.6451,  radRatio=0.0349,  tdur=0.128,  lc=lc)
 ```
 It is essential that EDI-Vetter re-fits the light curve to measure changes from the transit detection.
 ```
