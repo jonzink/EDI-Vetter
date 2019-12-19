@@ -7,14 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Several python packages are required to run this software. Here are a few:
-Pandas
-Numpy
-emcee
-scipy
-lmfit
-batman
-astropy
+Several python packages are required to run this software. Here are a few: Pandas, Numpy, emcee, scipy, lmfit, batman, astropy
 
 
 
