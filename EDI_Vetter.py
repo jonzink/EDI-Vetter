@@ -138,6 +138,26 @@ class parameters:
                                    
 
 def MCfit(params, removeOutliers=True):
+    """Re-Fit light curve to transit model.
+
+    This function will take the input transit parameters and re-fit the model.
+    This will help look for variation between the transit detection model and
+    MCMC optimization.
+    
+    Args:
+        params (Required[object]): the transit parameters needed to assess
+             the validity of the signal
+        
+        removeOutliers (Optional[boolean]): tells the fit whether or not to
+            look for and remove potential outliers in the light curve.
+
+    Output:
+        params : the modified transit parameters needed to assess
+             the validity of the signal
+    
+
+    """
+    
     
     if removeOutliers:
     #######Remove Outliers
@@ -328,7 +348,7 @@ def Go(params,delta_mag=float("Inf"),delta_dist=float("Inf"), photoAp=1):
     The Go function runs all of the EDI-Vetter metrics on the transit signal.  
     
     Args:
-        params (Required[object]): the transit parameters need to assess
+        params (Required[object]): the transit parameters needed to assess
              the validity of the signal
         
         delta_mag (optional[float]): magnitude difference between target star
@@ -338,6 +358,10 @@ def Go(params,delta_mag=float("Inf"),delta_dist=float("Inf"), photoAp=1):
              potential contaminate source in arc-seconds
         
         photoAp (optional[int]): number of pixels used for the target aperture.
+    
+    Output:
+        params : the modified transit parameters needed to assess
+             the validity of the signal
 
 
     """
@@ -401,10 +425,21 @@ def fluxContamination(params,delta_mag,delta_dist, photoAp):
     Look for transit contamination from nearby stars.
     
     Args:
-        params : Normal transit parameters
-        delta_mag (float): the difference in magnitudes between the target star and the potential contaminate in the Gaia G band 
-        delta_dist (float): the distance between the potentially contaminating source and the target star in arcsecond.
-        photoAp (int): The number of pixels used in the aperture of the flux measurements. 
+        params (Required[object]): the transit parameters needed to assess
+            the validity of the signal
+    
+        delta_mag (float): the difference in magnitudes between the target
+            star and the potential contaminate in the Gaia G band 
+    
+        delta_dist (float): the distance between the potentially contaminating
+            source and the target star in arc-seconds.
+    
+        photoAp (int): The number of pixels used in the aperture of the flux
+            measurements. 
+    
+    Output:
+        params : the modified transit parameters needed to assess
+             the validity of the signal
 
     """
 
@@ -430,6 +465,20 @@ def fluxContamination(params,delta_mag,delta_dist, photoAp):
         
 
 def outlierTransit(params):
+    
+    """Outlier Detection
+     
+    Looks for outliers during the apparent transit, falsely causing the signal
+    
+    Args:
+        params (Required[object]): the transit parameters needed to assess
+            the validity of the signal
+    
+    Output:
+        params : the modified transit parameters needed to assess
+             the validity of the signal
+
+    """
     
     # global params
     fit_tdur=params.fit_tdur
@@ -484,6 +533,20 @@ def outlierTransit(params):
     
 
 def individual_transits(params):
+    
+    """Individual Transit Test
+     
+    Looks at the individual transits for apparent anomalies.
+     
+    Args:
+        params (Required[object]): the transit parameters needed to assess
+            the validity of the signal
+    
+    Output:
+        params : the modified transit parameters needed to assess
+             the validity of the signal
+
+    """
     
     params.TransMask=False
     fit_tdur=params.fit_tdur
@@ -796,6 +859,7 @@ def grid_search_NewMES(params):
     return SNR  
     
 def even_odd_transit(params):
+    
     
     def add_phasefold(params):
         return tval.add_phasefold(params.lc, params.lc.t, params.fit_P, params.fit_t0,1)
