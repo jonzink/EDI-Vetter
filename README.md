@@ -9,12 +9,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 Several python packages are required to run this software. Here are a few: Pandas, Numpy, emcee, scipy, lmfit, batman, astropy
 
+EDI-Vetter currently relies on several features provided by the [Terra](https://github.com/petigura/terra) software package. We have included a copy in this repositories, but remind users to cite appropriately.  
+
 
 
 
 ## Running EDI-Vetter in Python
 
-Here we provide quick example using the light curve provided.
+Here we provide a quick example using the light curve of K2-138.
 
 Begin by opening Python in the appropriate directory. 
 ```
@@ -33,7 +35,7 @@ Now you can set up the EDI-Vetter parameters object with the appropriate transit
 ```
 >>> params=EDI_Vetter.parameters(per=8.26144,t0=2907.6451,radRatio=0.0349,tdur=0.128,lc=lc)
 ```
-It is essential that EDII-Vetter re-fits the light curve to measure changes from the transit detection.
+It is essential that EDI-Vetter re-fits the light curve to measure changes from the transit detection.
 ```
 >>> params=EDI_Vetter.MCfit(params)
 ```
