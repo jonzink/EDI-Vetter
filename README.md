@@ -1,6 +1,8 @@
 # EDI-Vetter
 This is a program meant identify false positive transit signal in the K2 data set. This program has been simplified to test single transiting planet signals. Systems with multiple signals require additional testing, which will be made available in a later iteration.
 
+UPDATE: There has been a signficant desire for a [TLS](https://github.com/hippke/tls) based version of EDI-Vetter. Thus, I present [EDI-Vetter Unplugged](https://github.com/jonzink/EDI-Vetter_unplugged), an easily impletemneted suite of vetting metrics built to run alongside [TLS](https://github.com/hippke/tls).
+
 <a href="https://zenodo.org/badge/latestdoi/200920137"><img src="https://zenodo.org/badge/200920137.svg" alt="DOI"></a>   
 
 ## Getting Started
